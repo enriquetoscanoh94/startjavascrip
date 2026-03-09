@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Excusas 🦥</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="floaters">
+    <span class="floater">🦥</span>
+    <span class="floater">💤</span>
+    <span class="floater">🛋️</span>
+    <span class="floater">📺</span>
+    <span class="floater">🍕</span>
+    <span class="floater">🐕</span>
+    <span class="floater">😴</span>
+    <span class="floater">🎮</span>
+    <span class="floater">☕</span>
+  </div>
+
+  <div class="card">
+    <div class="badge">🦥 Para procrastinadores</div>
+    <h1>Generador de<br>Excusas Pro</h1>
+    <p class="subtitle">Disneylandia para los que no quieren hacer nada ✨</p>
+
+    <div class="excuse-box">
+      <p id="excuse">El perro se comió mi tarea antes de clase.</p>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="newExcuse()">🎲 Nueva excusa</button>
+      <button class="btn btn-accent"  onclick="copyExcuse()">📋 Copiar</button>
+    </div>
+    <p class="copy-msg" id="copy-msg"></p>
+
+    <div class="footer">
+      <div class="stars">★★★★★</div>
+      "Aprobado por perezosos en 23 países" — <em>The Lazy Times</em>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

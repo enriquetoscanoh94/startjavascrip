@@ -1,0 +1,194 @@
+:root {
+  --bg: #fff8f0;
+  --card: #ffffff;
+  --primary: #ff6b35;
+  --secondary: #ffd166;
+  --accent: #06d6a0;
+  --dark: #1a1a2e;
+  --shadow: 0 8px 32px rgba(255,107,53,0.15);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(255,209,102,0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6,214,160,0.2) 0%, transparent 40%),
+    radial-gradient(circle at 50% 50%, rgba(255,107,53,0.08) 0%, transparent 60%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating emojis */
+.floaters {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.floater {
+  position: absolute;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  opacity: 0.18;
+  animation: floatUp linear infinite;
+}
+.floater:nth-child(1)  { left:  5%; animation-duration: 14s; animation-delay: 0s;   }
+.floater:nth-child(2)  { left: 15%; animation-duration: 18s; animation-delay: -4s;  }
+.floater:nth-child(3)  { left: 25%; animation-duration: 12s; animation-delay: -8s;  }
+.floater:nth-child(4)  { left: 38%; animation-duration: 20s; animation-delay: -2s;  }
+.floater:nth-child(5)  { left: 50%; animation-duration: 16s; animation-delay: -6s;  }
+.floater:nth-child(6)  { left: 62%; animation-duration: 11s; animation-delay: -10s; }
+.floater:nth-child(7)  { left: 74%; animation-duration: 17s; animation-delay: -3s;  }
+.floater:nth-child(8)  { left: 85%; animation-duration: 13s; animation-delay: -7s;  }
+.floater:nth-child(9)  { left: 93%; animation-duration: 19s; animation-delay: -1s;  }
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) rotate(0deg);  opacity: 0;    }
+  10%  { opacity: 0.18; }
+  90%  { opacity: 0.18; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0;   }
+}
+
+/* Card */
+.card {
+  position: relative;
+  z-index: 1;
+  background: var(--card);
+  border-radius: 28px;
+  padding: 3rem 3.5rem;
+  max-width: 640px;
+  width: 100%;
+  box-shadow:
+    0 2px 0 4px var(--secondary),
+    0 6px 0 4px var(--primary),
+    var(--shadow);
+  text-align: center;
+  animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.7) translateY(40px); opacity: 0; }
+  to   { transform: scale(1)   translateY(0);    opacity: 1; }
+}
+
+.badge {
+  display: inline-block;
+  background: var(--secondary);
+  color: var(--dark);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.35rem 1rem;
+  border-radius: 99px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--dark);
+}
+
+h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  text-shadow: 3px 3px 0 var(--secondary);
+}
+
+.subtitle {
+  color: #888;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+}
+
+/* Excuse box */
+.excuse-box {
+  background: linear-gradient(135deg, #fff5ee, #fff0fb);
+  border: 2.5px dashed var(--primary);
+  border-radius: 18px;
+  padding: 2rem 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.excuse-box::before {
+  content: "💬";
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.8rem;
+}
+
+#excuse {
+  font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+  font-weight: 800;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+#excuse.flash {
+  animation: flash 0.4s ease;
+}
+
+@keyframes flash {
+  0%   { opacity: 1; transform: scale(1);    }
+  30%  { opacity: 0; transform: scale(0.92); }
+  60%  { opacity: 0; transform: scale(0.92); }
+  100% { opacity: 1; transform: scale(1);    }
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 99px;
+  border: 2.5px solid var(--dark);
+  cursor: pointer;
+  transition: transform 0.12s, box-shadow 0.12s;
+  box-shadow: 3px 3px 0 var(--dark);
+}
+
+.btn:hover  { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--dark); }
+.btn:active { transform: translate(2px, 2px);   box-shadow: 1px 1px 0 var(--dark); }
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-accent  { background: var(--accent);  color: #fff; }
+
+.copy-msg {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 700;
+  height: 1.2em;
+}
+
+/* Footer */
+.footer {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #bbb;
+  font-weight: 600;
+}
+
+.stars { color: var(--secondary); font-size: 1rem; letter-spacing: 2px; }
